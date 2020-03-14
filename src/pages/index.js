@@ -14,21 +14,20 @@ class RootIndex extends React.Component {
 
     return (
       <Layout location={this.props.location}>
-        <div style={{background: '#fff'}}>
-          <Helmet title={siteTitle} />
+        <Helmet title={siteTitle} />
+
+        <header>
           <Hero data={author.node} />
-          <div className="wrapper">
-            <h2 className="section-headline">Recent articles</h2>
-            <ul className="article-list">
-              {posts.map(({node}) => {
-                return (
-                  <li key={node.slug}>
-                    <ArticlePreview article={node} />
-                  </li>
-                )
-              })}
-            </ul>
-          </div>
+        </header>
+
+        <div className="wrapper">
+          <ul className="article-list">
+            {posts.map(({node}) => (
+              <li key={node.slug}>
+                <ArticlePreview article={node} />
+              </li>
+            ))}
+          </ul>
         </div>
       </Layout>
     )
@@ -45,17 +44,13 @@ export const pageQuery = graphql`
           title
           slug
           publishDate(formatString: "MMMM Do, YYYY")
-          tags
-          heroImage {
-            fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
-              ...GatsbyContentfulFluid_tracedSVG
-            }
-          }
           description {
             childMarkdownRemark {
               html
             }
           }
+          bg
+          color
         }
       }
     }
@@ -67,17 +62,6 @@ export const pageQuery = graphql`
           name
           shortBio {
             shortBio
-          }
-          title
-          heroImage: image {
-            fluid(
-              maxWidth: 1180
-              maxHeight: 480
-              resizingBehavior: PAD
-              background: "rgb:000000"
-            ) {
-              ...GatsbyContentfulFluid_tracedSVG
-            }
           }
         }
       }
