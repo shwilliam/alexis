@@ -11,12 +11,6 @@ export default ({article}) => (
     <Link className={styles.previewLink} to={`/blog/${article.slug}`}>
       <h3 className={styles.previewTitle}>{article.title}</h3>
       <small>{article.publishDate}</small>
-      <p
-        hidden
-        dangerouslySetInnerHTML={{
-          __html: article.description.childMarkdownRemark.html,
-        }}
-      />
     </Link>
   </div>
 )

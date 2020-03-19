@@ -27,7 +27,7 @@ class BlogPostTemplate extends React.Component {
             </p>
             <div
               dangerouslySetInnerHTML={{
-                __html: post.body.childMarkdownRemark.html,
+                __html: post.content.childMarkdownRemark.html,
               }}
             />
           </div>
@@ -44,7 +44,7 @@ export const pageQuery = graphql`
     contentfulBlogPost(slug: {eq: $slug}) {
       title
       publishDate(formatString: "MMMM Do, YYYY")
-      body {
+      content {
         childMarkdownRemark {
           html
         }

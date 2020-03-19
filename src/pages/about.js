@@ -4,13 +4,12 @@ import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import Hero from '../components/hero'
 import Layout from '../components/layout'
-import ArticlePreview from '../components/article-preview'
 import Navigation from '../components/navigation'
 
-class RootIndex extends React.Component {
+class AboutIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const posts = get(this, 'props.data.allContentfulBlogPost.edges')
+    const [page] = get(this, 'props.data.allContentfulPage.edges')
     const [author] = get(this, 'props.data.allContentfulAuthor.edges')
 
     return (
@@ -23,31 +22,32 @@ class RootIndex extends React.Component {
         </header>
 
         <div className="wrapper">
-          <ul className="article-list">
-            {posts.map(({node}) => (
-              <li key={node.slug}>
-                <ArticlePreview article={node} />
-              </li>
-            ))}
-          </ul>
+          <div
+            dangerouslySetInnerHTML={{
+              __html:
+                page.node.childContentfulPageContentTextNode.childMarkdownRemark
+                  .html,
+            }}
+          />
         </div>
       </Layout>
     )
   }
 }
 
-export default RootIndex
+export default AboutIndex
 
 export const pageQuery = graphql`
-  query HomeQuery {
-    allContentfulBlogPost(sort: {fields: [publishDate], order: DESC}) {
+  query AboutQuery {
+    allContentfulPage(filter: {contentful_id: {eq: "71LU0aM3lP6Hs2JXpGz3PY"}}) {
       edges {
         node {
           title
-          slug
-          publishDate(formatString: "MMMM Do, YYYY")
-          bg
-          color
+          childContentfulPageContentTextNode {
+            childMarkdownRemark {
+              html
+            }
+          }
         }
       }
     }

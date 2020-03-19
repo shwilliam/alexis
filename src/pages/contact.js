@@ -4,13 +4,11 @@ import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import Hero from '../components/hero'
 import Layout from '../components/layout'
-import ArticlePreview from '../components/article-preview'
 import Navigation from '../components/navigation'
 
-class RootIndex extends React.Component {
+class ContactIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const posts = get(this, 'props.data.allContentfulBlogPost.edges')
     const [author] = get(this, 'props.data.allContentfulAuthor.edges')
 
     return (
@@ -22,35 +20,16 @@ class RootIndex extends React.Component {
           <Navigation />
         </header>
 
-        <div className="wrapper">
-          <ul className="article-list">
-            {posts.map(({node}) => (
-              <li key={node.slug}>
-                <ArticlePreview article={node} />
-              </li>
-            ))}
-          </ul>
-        </div>
+        <div className="wrapper">TODO</div>
       </Layout>
     )
   }
 }
 
-export default RootIndex
+export default ContactIndex
 
 export const pageQuery = graphql`
-  query HomeQuery {
-    allContentfulBlogPost(sort: {fields: [publishDate], order: DESC}) {
-      edges {
-        node {
-          title
-          slug
-          publishDate(formatString: "MMMM Do, YYYY")
-          bg
-          color
-        }
-      }
-    }
+  query ContactQuery {
     allContentfulAuthor(
       filter: {contentful_id: {eq: "3n9x5NFplvt5Hb9QVo6pN1"}}
     ) {
