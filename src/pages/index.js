@@ -4,6 +4,7 @@ import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import Hero from '../components/hero'
 import Layout from '../components/layout'
+import Footer from '../components/footer'
 import ArticlePreview from '../components/article-preview'
 import Navigation from '../components/navigation'
 
@@ -15,6 +16,7 @@ class RootIndex extends React.Component {
 
     return (
       <Layout location={this.props.location}>
+        <h1 className="sr-only">Home</h1>
         <Helmet title={siteTitle} />
 
         <header>
@@ -30,6 +32,14 @@ class RootIndex extends React.Component {
               </li>
             ))}
           </ul>
+
+          <p
+            dangerouslySetInnerHTML={{
+              __html: author.node.shortBio.childMarkdownRemark.html,
+            }}
+          />
+
+          <Footer />
         </div>
       </Layout>
     )
@@ -40,7 +50,10 @@ export default RootIndex
 
 export const pageQuery = graphql`
   query HomeQuery {
-    allContentfulBlogPost(sort: {fields: [publishDate], order: DESC}) {
+    allContentfulBlogPost(
+      limit: 2
+      sort: {fields: [publishDate], order: DESC}
+    ) {
       edges {
         node {
           title
@@ -57,6 +70,11 @@ export const pageQuery = graphql`
       edges {
         node {
           name
+          shortBio {
+            childMarkdownRemark {
+              html
+            }
+          }
         }
       }
     }

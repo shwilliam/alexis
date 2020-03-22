@@ -6,7 +6,7 @@ import styles from './hero.module.css'
 export default ({data}) => (
   <div className={styles.hero}>
     <Link to="/">
-      <h3 className={styles.heroHeadline}>{data.name}</h3>
+      <h2 className={styles.heroHeadline}>{data.name}</h2>
     </Link>
   </div>
 )

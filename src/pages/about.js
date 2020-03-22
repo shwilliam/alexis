@@ -9,7 +9,6 @@ import Navigation from '../components/navigation'
 class AboutIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const [page] = get(this, 'props.data.allContentfulPage.edges')
     const [author] = get(this, 'props.data.allContentfulAuthor.edges')
 
     return (
@@ -22,11 +21,11 @@ class AboutIndex extends React.Component {
         </header>
 
         <div className="wrapper">
-          <div
+          <h1 className="page-title">About me</h1>
+
+          <p
             dangerouslySetInnerHTML={{
-              __html:
-                page.node.childContentfulPageContentTextNode.childMarkdownRemark
-                  .html,
+              __html: author.node.bio.childMarkdownRemark.html,
             }}
           />
         </div>
@@ -39,24 +38,17 @@ export default AboutIndex
 
 export const pageQuery = graphql`
   query AboutQuery {
-    allContentfulPage(filter: {contentful_id: {eq: "71LU0aM3lP6Hs2JXpGz3PY"}}) {
-      edges {
-        node {
-          title
-          childContentfulPageContentTextNode {
-            childMarkdownRemark {
-              html
-            }
-          }
-        }
-      }
-    }
     allContentfulAuthor(
       filter: {contentful_id: {eq: "3n9x5NFplvt5Hb9QVo6pN1"}}
     ) {
       edges {
         node {
           name
+          bio {
+            childMarkdownRemark {
+              html
+            }
+          }
         }
       }
     }
