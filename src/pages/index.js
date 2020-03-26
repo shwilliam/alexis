@@ -2,16 +2,13 @@ import React from 'react'
 import {graphql} from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
-import Hero from '../components/hero'
 import Layout from '../components/layout'
 import Footer from '../components/footer'
-import ArticlePreview from '../components/article-preview'
 import Navigation from '../components/navigation'
 
 class RootIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const posts = get(this, 'props.data.allContentfulBlogPost.edges')
     const [author] = get(this, 'props.data.allContentfulAuthor.edges')
 
     return (
@@ -19,25 +16,21 @@ class RootIndex extends React.Component {
         <h1 className="sr-only">Home</h1>
         <Helmet title={siteTitle} />
 
-        <header>
-          <Hero data={author.node} />
-          <Navigation />
-        </header>
+        <div className="home-container">
+          <header>
+            <Navigation />
+          </header>
 
-        <div className="wrapper">
-          <ul className="article-list">
-            {posts.map(({node}) => (
-              <li key={node.slug}>
-                <ArticlePreview article={node} />
-              </li>
-            ))}
-          </ul>
+          <div className="wrapper">
+            <h2 className="home-title">{author.node.name}</h2>
 
-          <p
-            dangerouslySetInnerHTML={{
-              __html: author.node.shortBio.childMarkdownRemark.html,
-            }}
-          />
+            <p
+              className="home-subtitle"
+              dangerouslySetInnerHTML={{
+                __html: author.node.shortBio.childMarkdownRemark.html,
+              }}
+            />
+          </div>
 
           <Footer />
         </div>
@@ -50,20 +43,6 @@ export default RootIndex
 
 export const pageQuery = graphql`
   query HomeQuery {
-    allContentfulBlogPost(
-      limit: 2
-      sort: {fields: [publishDate], order: DESC}
-    ) {
-      edges {
-        node {
-          title
-          slug
-          publishDate(formatString: "MMMM Do, YYYY")
-          bg
-          color
-        }
-      }
-    }
     allContentfulAuthor(
       filter: {contentful_id: {eq: "3n9x5NFplvt5Hb9QVo6pN1"}}
     ) {

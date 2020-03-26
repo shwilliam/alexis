@@ -3,22 +3,20 @@ import {graphql} from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import Layout from '../components/layout'
-import Hero from '../components/hero'
 import Navigation from '../components/navigation'
 import ArticlePreview from '../components/article-preview'
+import Footer from '../components/footer'
 
 class BlogIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const posts = get(this, 'props.data.allContentfulBlogPost.edges')
-    const [author] = get(this, 'props.data.allContentfulAuthor.edges')
 
     return (
       <Layout location={this.props.location}>
         <Helmet title={siteTitle} />
 
         <header>
-          <Hero data={author.node} />
           <Navigation />
         </header>
 
@@ -32,6 +30,8 @@ class BlogIndex extends React.Component {
             ))}
           </ul>
         </div>
+
+        <Footer />
       </Layout>
     )
   }

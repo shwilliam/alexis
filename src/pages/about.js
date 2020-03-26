@@ -2,9 +2,9 @@ import React from 'react'
 import {graphql} from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
-import Hero from '../components/hero'
 import Layout from '../components/layout'
 import Navigation from '../components/navigation'
+import Footer from '../components/footer'
 
 class AboutIndex extends React.Component {
   render() {
@@ -16,7 +16,6 @@ class AboutIndex extends React.Component {
         <Helmet title={siteTitle} />
 
         <header>
-          <Hero data={author.node} />
           <Navigation />
         </header>
 
@@ -29,6 +28,8 @@ class AboutIndex extends React.Component {
             }}
           />
         </div>
+
+        <Footer />
       </Layout>
     )
   }
