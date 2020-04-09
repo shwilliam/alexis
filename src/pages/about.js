@@ -1,5 +1,6 @@
 import React from 'react'
 import {graphql} from 'gatsby'
+import Img from 'gatsby-image'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import Layout from '../components/layout'
@@ -21,6 +22,10 @@ class AboutIndex extends React.Component {
 
         <div className="wrapper">
           <h1 className="page-title">About me</h1>
+
+          <div className="page-hero-img">
+            <Img fixed={author.node.image.fixed} />
+          </div>
 
           <p
             dangerouslySetInnerHTML={{
@@ -48,6 +53,14 @@ export const pageQuery = graphql`
           bio {
             childMarkdownRemark {
               html
+            }
+          }
+          image {
+            fixed(width: 400) {
+              width
+              height
+              src
+              srcSet
             }
           }
         }
