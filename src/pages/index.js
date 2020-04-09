@@ -24,12 +24,12 @@ class RootIndex extends React.Component {
           <div className="wrapper">
             <h2 className="home-title">{author.node.name}</h2>
 
-            <p
-              className="home-subtitle"
-              dangerouslySetInnerHTML={{
-                __html: author.node.shortBio.childMarkdownRemark.html,
-              }}
-            />
+            <p className="home-subtitle">
+              Hi, I'm Alexis, a recent McGill graduate with experience and
+              interest in the fields of environmental sustainability and social
+              impact. These are some beautiful wildflowers I saw while on a hike
+              in Manning Park, BC. Welcome to my site!
+            </p>
           </div>
 
           <Footer />
@@ -49,11 +49,6 @@ export const pageQuery = graphql`
       edges {
         node {
           name
-          shortBio {
-            childMarkdownRemark {
-              html
-            }
-          }
         }
       }
     }
