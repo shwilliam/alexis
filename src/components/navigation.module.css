@@ -14,5 +14,16 @@
 
 .navigationItem a {
   color: currentColor;
-  font-weight: 700;
+  font-size: 1.25rem;
+  white-space: nowrap;
+}
+
+.emoji {
+  display: none;
+}
+
+@media (min-width: 650px) {
+  .emoji {
+    display: initial;
+  }
 }

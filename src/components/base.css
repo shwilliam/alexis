@@ -1,8 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;1,400&display=swap');
 
 body {
-  font-family: 'Noto Sans', 'Franklin Gothic Medium', 'Arial Narrow', Arial,
-    sans-serif;
+  font-family: 'Barlow', Arial, sans-serif;
   font-size: 17.5px;
   line-height: 1.65;
   color: #222;
@@ -32,8 +31,9 @@ a {
   transition: color 300ms ease-in-out;
 }
 
-a:hover {
-  color: rebeccapurple !important;
+a:hover,
+a[aria-current] {
+  color: #bbdae4 !important;
 }
 
 input,
@@ -85,7 +85,7 @@ textarea {
 
 .home-title {
   font-size: 2.8rem;
-  font-weight: 700;
+  font-weight: 600;
   text-align: center;
   margin-top: 3rem;
 }
@@ -97,13 +97,17 @@ textarea {
 }
 
 /**
- * page title
+ * page
  */
 .page-title {
   font-size: 2.5rem;
-  font-weight: 700;
+  font-weight: 600;
   text-align: center;
   margin: 3rem 0 6rem 0;
+}
+
+.page-hero-img {
+  text-align: center;
 }
 
 /**
