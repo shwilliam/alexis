@@ -5,7 +5,6 @@ import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import Layout from '../components/layout'
 import Footer from '../components/footer'
-import Navigation from '../components/navigation'
 
 class RootIndex extends React.Component {
   render() {
@@ -19,10 +18,6 @@ class RootIndex extends React.Component {
         <Helmet title={siteTitle} />
 
         <div className="home-container">
-          <header>
-            <Navigation />
-          </header>
-
           <div className="wrapper">
             <h2 className="home-title">{author.node.name}</h2>
 

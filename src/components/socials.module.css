@@ -1,0 +1,36 @@
+.socialsNav,
+.socialsNavSmall {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  width: 180px;
+  margin: 0 auto;
+  padding: 0.15rem 1.75rem 0 1.75rem;
+}
+
+.socialsNavSmall {
+  width: 110px;
+  display: none;
+}
+
+.socialsNav svg {
+  width: 25px;
+}
+
+.socialsNavSmall svg {
+  width: 15px;
+}
+
+.socialsNavItem {
+  list-style: none;
+}
+
+.socialsNavItem a {
+  padding: 7.5px 10px;
+}
+
+@media (min-width: 650px) {
+  .socialsNavSmall {
+    display: flex;
+  }
+}

@@ -3,7 +3,6 @@ import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import Layout from '../components/layout'
 import Footer from '../components/footer'
-import Navigation from '../components/navigation'
 
 class ContactIndex extends React.Component {
   render() {
@@ -12,10 +11,6 @@ class ContactIndex extends React.Component {
     return (
       <Layout location={this.props.location}>
         <Helmet title={siteTitle} />
-
-        <header>
-          <Navigation />
-        </header>
 
         <div className="wrapper">
           <h1 className="page-title">Let's get in touch</h1>

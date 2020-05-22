@@ -3,7 +3,6 @@ import {graphql} from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import Layout from '../components/layout'
-import Navigation from '../components/navigation'
 import Footer from '../components/footer'
 
 class PortfolioIndex extends React.Component {
@@ -14,10 +13,6 @@ class PortfolioIndex extends React.Component {
     return (
       <Layout location={this.props.location}>
         <Helmet title={siteTitle} />
-
-        <header>
-          <Navigation />
-        </header>
 
         <div className="wrapper">
           <h1 className="page-title">Portfolio</h1>

@@ -1,9 +1,10 @@
 import React from 'react'
 import {Link} from 'gatsby'
+import Socials from './socials'
 import styles from './navigation.module.css'
 
 export default () => (
-  <nav role="navigation">
+  <nav className={styles.navigationWrapper} role="navigation">
     <ul className={styles.navigation}>
       <li className={styles.navigationItem}>
         <Link to="/">
@@ -46,5 +47,7 @@ export default () => (
         </Link>
       </li>
     </ul>
+
+    <Socials small />
   </nav>
 )
