@@ -20,7 +20,7 @@ class BlogPostTemplate extends React.Component {
         </header>
 
         <div className="wrapper">
-          <Link to="/blog" className="section-subheading">Blog</Link>
+          <Link to="/blog" className="section-subheading"><span className="back" role="img" aria-label="">☜</span> Back to blog</Link>
           <h1 className="section-headline">{post.title}</h1>
           <p
             style={{

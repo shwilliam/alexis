@@ -18,15 +18,17 @@ class AboutIndex extends React.Component {
         <div className="wrapper">
           <h1 className="page-title">About me</h1>
 
-          <div className="page-hero-img">
-            <Img fixed={author.node.image.fixed} />
-          </div>
+          <div className="split">
+            <p
+              dangerouslySetInnerHTML={{
+                __html: author.node.bio.childMarkdownRemark.html,
+              }}
+            />
 
-          <p
-            dangerouslySetInnerHTML={{
-              __html: author.node.bio.childMarkdownRemark.html,
-            }}
-          />
+            <div className="page-hero-img">
+              <Img fixed={author.node.image.fixed} />
+            </div>
+          </div>
         </div>
 
         <Footer />
@@ -51,7 +53,7 @@ export const pageQuery = graphql`
             }
           }
           image {
-            fixed(width: 400) {
+            fixed(width: 320) {
               width
               height
               src

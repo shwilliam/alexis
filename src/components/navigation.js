@@ -7,14 +7,6 @@ export default () => (
   <nav className={styles.navigationWrapper} role="navigation">
     <ul className={styles.navigation}>
       <li className={styles.navigationItem}>
-        <Link to="/">
-          Home{' '}
-          <span role="img" aria-label="" className={styles.emoji}>
-            🌎
-          </span>
-        </Link>
-      </li>
-      <li className={styles.navigationItem}>
         <Link to="/about">
           About{' '}
           <span role="img" aria-label="" className={styles.emoji}>
