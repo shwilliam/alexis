@@ -19,7 +19,7 @@ class AboutIndex extends React.Component {
           <h1 className="page-title">About me</h1>
 
           <div className="split">
-            <p
+            <div
               dangerouslySetInnerHTML={{
                 __html: author.node.bio.childMarkdownRemark.html,
               }}
