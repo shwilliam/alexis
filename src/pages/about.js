@@ -16,7 +16,7 @@ class AboutIndex extends React.Component {
         <Helmet title={siteTitle} />
 
         <div className="wrapper">
-          <h1 className="page-title">About me</h1>
+          <h1 className="page-title">Hello~</h1>
 
           <div className="split">
             <div
