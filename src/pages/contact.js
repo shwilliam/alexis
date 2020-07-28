@@ -15,7 +15,17 @@ class ContactIndex extends React.Component {
         <div className="wrapper">
           <h1 className="page-title">Let's get in touch</h1>
 
-          <form id="contact-form" className="contact-form">
+          <form
+            name="contact"
+            id="contact-form"
+            className="contact-form"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            action="/success"
+            method="POST"
+          >
+            <input type="hidden" name="form-name" value="contact" />
+
             <label className="contact-form__name">
               <p className="contact-form__label">Name</p>
               <input type="text" name="name" required />
