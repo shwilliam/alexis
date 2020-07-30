@@ -6,7 +6,7 @@ import Helmet from 'react-helmet'
 import Layout from '../components/layout'
 import Footer from '../components/footer'
 
-class AboutIndex extends React.Component {
+class AboutPage extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const [author] = get(this, 'props.data.allContentfulAuthor.edges')
@@ -37,7 +37,7 @@ class AboutIndex extends React.Component {
   }
 }
 
-export default AboutIndex
+export default AboutPage
 
 export const pageQuery = graphql`
   query AboutQuery {

@@ -5,7 +5,7 @@ body {
   font-size: 17px;
   line-height: 1.65;
   color: #222;
-  background: #fff;
+  background: #eee6d1;
   margin: 0;
 }
 
@@ -150,6 +150,10 @@ textarea {
   grid-gap: 5vmin;
 }
 
+.blog-post pre {
+  font-family: 'Inter', Arial, sans-serif !important;
+}
+
 /**
  *
  */
@@ -199,7 +203,7 @@ textarea {
     'submit submit';
 }
 
-.contact-form [type="submit"] {
+.contact-form [type='submit'] {
   grid-area: submit;
 }
 
