@@ -13,7 +13,7 @@ class ContactIndex extends React.Component {
         <Helmet title={siteTitle} />
 
         <div className="wrapper">
-          <h1 className="page-title">Let's get in touch</h1>
+          <h1 className="page-title">Let's get in touch!</h1>
 
           <form
             name="contact"

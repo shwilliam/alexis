@@ -18,6 +18,7 @@ class PortfolioIndex extends React.Component {
           <h1 className="page-title">Portfolio</h1>
 
           <p
+            className="no-bullets"
             dangerouslySetInnerHTML={{
               __html: content.childMarkdownRemark.html,
             }}

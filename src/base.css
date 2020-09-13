@@ -5,7 +5,7 @@ body {
   font-size: 17px;
   line-height: 1.65;
   color: #222;
-  background: #eee6d1;
+  background: #ffe;
   margin: 0;
 }
 
@@ -33,7 +33,7 @@ a {
 
 a:hover,
 a[aria-current] {
-  color: #bbdae4 !important;
+  color: #2bb285 !important;
 }
 
 input,
@@ -83,6 +83,12 @@ textarea {
   .split {
     flex-direction: row;
   }
+}
+
+.no-bullets ul,
+.no-bullets ol {
+  list-style: none !important;
+  padding: 0;
 }
 
 /**
