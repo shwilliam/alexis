@@ -53,7 +53,7 @@ export const pageQuery = graphql`
             }
           }
           image {
-            fixed(width: 320) {
+            fixed(width: 320, quality: 100) {
               width
               height
               src

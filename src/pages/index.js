@@ -32,7 +32,7 @@ export const pageQuery = graphql`
   query HomeQuery {
     contentfulPage(contentful_id: {eq: "1sA3TZSZKiNpPwzJb27xiA"}) {
       image {
-        fixed(width: 400) {
+        fixed(width: 400, quality: 100) {
           width
           height
           src
