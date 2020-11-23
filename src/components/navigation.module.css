@@ -27,7 +27,6 @@
 
 .navigationItem {
   position: relative;
-  text-transform: uppercase;
   display: inline-flex;
   align-items: center;
   letter-spacing: -0.5px;

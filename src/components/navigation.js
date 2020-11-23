@@ -24,6 +24,14 @@ export default () => (
           </Link>
         </li>
         <li className={styles.navigationItem}>
+          <Link to="/photos">
+            Photos{" "}
+            <span role="img" aria-label="" className={styles.emoji}>
+              📷
+            </span>
+          </Link>
+        </li>
+        <li className={styles.navigationItem}>
           <Link to="/blog">
             Blog{' '}
             <span role="img" aria-label="" className={styles.emoji}>
