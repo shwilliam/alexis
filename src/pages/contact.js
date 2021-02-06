@@ -1,16 +1,16 @@
-import React from 'react'
-import get from 'lodash/get'
-import Helmet from 'react-helmet'
-import Layout from '../components/layout'
-import Footer from '../components/footer'
+import React from "react";
+import get from "lodash/get";
+import Helmet from "../components/helmet";
+import Layout from "../components/layout";
+import Footer from "../components/footer";
 
 class ContactIndex extends React.Component {
   render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
+    const siteTitle = get(this, "props.data.site.siteMetadata.title");
 
     return (
       <Layout location={this.props.location}>
-        <Helmet title={siteTitle} />
+        <Helmet page="Contact" />
 
         <div className="wrapper">
           <h1 className="page-title">Let's get in touch!</h1>
@@ -46,8 +46,8 @@ class ContactIndex extends React.Component {
         </div>
         <Footer />
       </Layout>
-    )
+    );
   }
 }
 
-export default ContactIndex
+export default ContactIndex;

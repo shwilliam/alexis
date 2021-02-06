@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import get from "lodash/get";
-import Helmet from "react-helmet";
+import Helmet from "../components/helmet";
 import Layout from "../components/layout";
 import Footer from "../components/footer";
 
@@ -12,7 +12,7 @@ class PhotosIndex extends React.Component {
 
     return (
       <Layout location={this.props.location}>
-        <Helmet title={siteTitle} />
+        <Helmet page="Photos" />
 
         <div className="wrapper">
           <h1 className="page-title sr-only">Photos</h1>

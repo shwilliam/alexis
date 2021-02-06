@@ -1,18 +1,18 @@
-import React from 'react'
-import {graphql} from 'gatsby'
-import get from 'lodash/get'
-import Helmet from 'react-helmet'
-import Layout from '../components/layout'
-import Footer from '../components/footer'
+import React from "react";
+import { graphql } from "gatsby";
+import get from "lodash/get";
+import Helmet from "../components/helmet";
+import Layout from "../components/layout";
+import Footer from "../components/footer";
 
 class PortfolioIndex extends React.Component {
   render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const {content} = get(this, 'props.data.contentfulPage')
+    const siteTitle = get(this, "props.data.site.siteMetadata.title");
+    const { content } = get(this, "props.data.contentfulPage");
 
     return (
       <Layout location={this.props.location}>
-        <Helmet title={siteTitle} />
+        <Helmet page="Portfolio" />
 
         <div className="wrapper">
           <h1 className="page-title">Portfolio</h1>
@@ -27,15 +27,15 @@ class PortfolioIndex extends React.Component {
 
         <Footer />
       </Layout>
-    )
+    );
   }
 }
 
-export default PortfolioIndex
+export default PortfolioIndex;
 
 export const pageQuery = graphql`
   query portfolioQuery {
-    contentfulPage(contentful_id: {eq: "2NaDtPvktzCC0hAvT8k9h7"}) {
+    contentfulPage(contentful_id: { eq: "2NaDtPvktzCC0hAvT8k9h7" }) {
       content {
         childMarkdownRemark {
           html
@@ -43,4 +43,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

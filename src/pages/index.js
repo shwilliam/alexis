@@ -1,18 +1,18 @@
-import React from 'react'
-import {graphql, Link} from 'gatsby'
-import Img from 'gatsby-image'
-import get from 'lodash/get'
-import Helmet from 'react-helmet'
+import React from "react";
+import { graphql, Link } from "gatsby";
+import Img from "gatsby-image";
+import get from "lodash/get";
+import Helmet from "../components/helmet";
 
 class RootIndex extends React.Component {
   render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const {image} = get(this, 'props.data.contentfulPage')
+    const siteTitle = get(this, "props.data.site.siteMetadata.title");
+    const { image } = get(this, "props.data.contentfulPage");
 
     return (
       <div className="home">
         <h1 className="sr-only">Home</h1>
-        <Helmet title={siteTitle} />
+        <Helmet />
         <div className="home-img">
           <Link to="/about">
             <Img fixed={image.fixed} />
@@ -22,15 +22,15 @@ class RootIndex extends React.Component {
           Enter site
         </Link>
       </div>
-    )
+    );
   }
 }
 
-export default RootIndex
+export default RootIndex;
 
 export const pageQuery = graphql`
   query HomeQuery {
-    contentfulPage(contentful_id: {eq: "1sA3TZSZKiNpPwzJb27xiA"}) {
+    contentfulPage(contentful_id: { eq: "1sA3TZSZKiNpPwzJb27xiA" }) {
       image {
         fixed(width: 400, quality: 100) {
           width
@@ -41,4 +41,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

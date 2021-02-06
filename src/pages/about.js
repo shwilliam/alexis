@@ -1,20 +1,19 @@
-import React from 'react'
-import {graphql} from 'gatsby'
-import Img from 'gatsby-image'
-import get from 'lodash/get'
-import Helmet from 'react-helmet'
-import Layout from '../components/layout'
-import Footer from '../components/footer'
+import React from "react";
+import { graphql } from "gatsby";
+import Img from "gatsby-image";
+import get from "lodash/get";
+import Helmet from "../components/helmet";
+import Layout from "../components/layout";
+import Footer from "../components/footer";
 
 class AboutPage extends React.Component {
   render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const [author] = get(this, 'props.data.allContentfulAuthor.edges')
+    const siteTitle = get(this, "props.data.site.siteMetadata.title");
+    const [author] = get(this, "props.data.allContentfulAuthor.edges");
 
     return (
       <Layout location={this.props.location}>
-        <Helmet title={siteTitle} />
-
+        <Helmet page="About" />
         <div className="wrapper">
           <h1 className="page-title">Hello~</h1>
 
@@ -33,16 +32,16 @@ class AboutPage extends React.Component {
 
         <Footer />
       </Layout>
-    )
+    );
   }
 }
 
-export default AboutPage
+export default AboutPage;
 
 export const pageQuery = graphql`
   query AboutQuery {
     allContentfulAuthor(
-      filter: {contentful_id: {eq: "3n9x5NFplvt5Hb9QVo6pN1"}}
+      filter: { contentful_id: { eq: "3n9x5NFplvt5Hb9QVo6pN1" } }
     ) {
       edges {
         node {
@@ -64,4 +63,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
